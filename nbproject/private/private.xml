@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Wasp/Documents/NetBeansProjects/CifradoIvuis/src/cifradoivuis/crearDiccionario.java</file>
-            <file>file:/C:/Users/Wasp/Documents/NetBeansProjects/CifradoIvuis/src/cifradoivuis/ManejoArchivo.java</file>
-            <file>file:/C:/Users/Wasp/Documents/NetBeansProjects/CifradoIvuis/src/cifradoivuis/CifradoIvuis.java</file>
-            <file>file:/C:/Users/Wasp/Documents/NetBeansProjects/CifradoIvuis/src/cifradoivuis/Principal.java</file>
-            <file>file:/C:/Users/Wasp/Documents/NetBeansProjects/CifradoIvuis/src/cifradoivuis/Crypto.java</file>
+            <file>file:/root/NetBeansProjects/ProyectoIvuis/src/cifradoivuis/Crypto.java</file>
+            <file>file:/root/NetBeansProjects/ProyectoIvuis/src/cifradoivuis/Principal.java</file>
+            <file>file:/root/NetBeansProjects/ProyectoIvuis/src/cifradoivuis/crearDiccionario.java</file>
         </group>
     </open-files>
 </project-private>

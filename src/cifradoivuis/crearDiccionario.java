@@ -10,7 +10,7 @@ public class crearDiccionario {
     private int base = 30;
     
     public crearDiccionario () {
-        abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ abcdefghijklmnñopqrstuvwxyz0123456789¿?áéíóú,.:";
+        abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ abcdefghijklmnñopqrstuvwxyz0123456789¿?áéíóú,.:¡!()~°¬";
         indiceAbecedario = new int[abecedario.length()];
         
         for(int i = 0; i < indiceAbecedario.length; i++) { // Para que al comparar si el número aleatorio ya existe en todo el arreglo

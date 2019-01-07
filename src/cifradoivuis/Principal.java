@@ -21,6 +21,12 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
     }
     
+    private String cryptoKey(String keyP) {
+        StringBuilder builder=new StringBuilder(keyP);
+        String reverseText = builder.reverse().toString();
+        return reverseText;
+    }
+    
     private void animationAddress(String address, int start, int end, JScrollPane name) {
         JScrollPane scroll;
         AnimationClass contentAnimation = new AnimationClass();
@@ -73,6 +79,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtNumericanBase = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        lblMenu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,7 +96,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(204, 204, 204));
         jLabel9.setText("Texto Final");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, -1, -1));
-        jLabel9.getAccessibleContext().setAccessibleName("Texto Final");
 
         txtAreaResultado.setBackground(new java.awt.Color(65, 65, 65));
         txtAreaResultado.setColumns(20);
@@ -106,7 +112,7 @@ public class Principal extends javax.swing.JFrame {
         lblCerrar.setForeground(new java.awt.Color(204, 204, 204));
         lblCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrar.png"))); // NOI18N
         lblCerrar.setText("Cerrar");
-        lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblCerrarMouseClicked(evt);
@@ -129,7 +135,7 @@ public class Principal extends javax.swing.JFrame {
         lblAtras.setForeground(new java.awt.Color(204, 204, 204));
         lblAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/izquierda.png"))); // NOI18N
         lblAtras.setText("Diccionario");
-        lblAtras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblAtras.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblAtras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAtrasMouseClicked(evt);
@@ -148,11 +154,11 @@ public class Principal extends javax.swing.JFrame {
         txtAreaDictionary.setRows(3);
         jScrollPane3.setViewportView(txtAreaDictionary);
 
-        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, 150));
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 280, 150));
 
         jspDictionary.setViewportView(jPanel3);
 
-        jPanel1.add(jspDictionary, new org.netbeans.lib.awtextra.AbsoluteConstraints(-300, 260, -1, 210));
+        jPanel1.add(jspDictionary, new org.netbeans.lib.awtextra.AbsoluteConstraints(-300, 260, 290, 210));
 
         txtAreaTexto.setBackground(new java.awt.Color(65, 65, 65));
         txtAreaTexto.setColumns(20);
@@ -226,7 +232,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, -1, -1));
 
         lblSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/disco-flexible.png"))); // NOI18N
-        lblSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblSave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblSave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSaveMouseClicked(evt);
@@ -235,7 +241,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(lblSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, -1));
 
         lblOpen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/carpeta.png"))); // NOI18N
-        lblOpen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblOpen.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblOpen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblOpenMouseClicked(evt);
@@ -261,6 +267,15 @@ public class Principal extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/clave.png"))); // NOI18N
         jLabel7.setText("Number Key");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+
+        lblMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lista.png"))); // NOI18N
+        lblMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMenuMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lblMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -292,7 +307,7 @@ public class Principal extends javax.swing.JFrame {
         String result = diccionario.crearCifrado(text);
         
         txtAreaDictionary.setText(dictionary);
-        txtPublicKey.setText(publicKey);
+        txtPublicKey.setText(cryptoKey(publicKey));
         txtAreaResultado.setText(result);
     }//GEN-LAST:event_btnCifrarActionPerformed
 
@@ -314,7 +329,7 @@ public class Principal extends javax.swing.JFrame {
         keyPublic = txtPublicKey.getText();
         int numericanBase = Integer.parseInt(txtNumericanBase.getText());
         
-        textUser = diccionario.descifrar(text, keyPublic, numericanBase);
+        textUser = diccionario.descifrar(text, cryptoKey(keyPublic), numericanBase);
         
         txtPublicKey.setText(keyPublic);
         txtAreaResultado.setText(textUser);
@@ -354,6 +369,11 @@ public class Principal extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_lblOpenMouseClicked
+
+    private void lblMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMenuMouseClicked
+        animationAddress("DOWN", -300, 0, jspResult);
+        animationAddress("RIGHT", -300, 0, jspDictionary);
+    }//GEN-LAST:event_lblMenuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -410,6 +430,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jspResult;
     private javax.swing.JLabel lblAtras;
     private javax.swing.JLabel lblCerrar;
+    private javax.swing.JLabel lblMenu;
     private javax.swing.JLabel lblOpen;
     private javax.swing.JLabel lblSave;
     private javax.swing.JTextArea txtAreaDictionary;
